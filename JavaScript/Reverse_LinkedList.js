@@ -1,9 +1,3 @@
-class NewNode{
-constructor(value){
-      value:value;
-      next:null;
-    }
-}
 class LinkedList{
   constructor(value){
     this.head={
@@ -105,8 +99,8 @@ class LinkedList{
     }
     this.head.next=null;
     this.head=first;
-    //return this.printList();
-    return this;
+    return this.printList();
+    //return this;
   }
 
 }
