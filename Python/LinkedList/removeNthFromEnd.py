@@ -58,7 +58,7 @@ class Solution(object):
             pos+=1
             
         '''Deletion happens and pointer shifting'''
-        if(pos==first_to_traverse or first_to_traverse==0):
+        if(pos==first_to_traverse):
             temp=first.next.next
             first.next=temp
             
