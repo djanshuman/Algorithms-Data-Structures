@@ -24,6 +24,7 @@ class Solution(object):
         if(head is None):
             return False
         
+        '''We are mainting two pointers first and tail. We will fix the first pointer and traverse tail till last'''
         first=head  
         tail=head.next
         len_of_list=1
@@ -36,7 +37,7 @@ class Solution(object):
             head=first
             return head
           
-        '''To calculate the length of LL and store in len_of_list'''
+        '''To calculate the length of LL and store in len_of_list variable. Here we reach the tail node'''
         while(tail.next != None): 
             print(1)
             tail=tail.next
@@ -53,7 +54,9 @@ class Solution(object):
             first=temp
             head=first
             
-        '''We traverse our first pointer to the previous node of to be deleted node and increment pos value '''
+        '''We traverse our first pointer to the previous node of to be deleted node and increment pos value as counter . 
+        Pos checks if we have reached the previous node'''
+        
         while(pos <first_to_traverse and first_to_traverse!=0):
             first=first.next
             pos+=1
