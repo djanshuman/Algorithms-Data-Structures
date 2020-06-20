@@ -53,7 +53,7 @@ class Solution(object):
             head=first
             
         '''We traverse our first pointer to the previous node of to be deleted node .Pos counter validates that'''
-        while(pos <first_to_traverse and first_to_traverse!=0):
+        while(pos <first_to_traverse):
             first=first.next
             pos+=1
             
