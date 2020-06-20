@@ -43,9 +43,7 @@ class Solution(object):
             tail=tail.next
             len_of_list+=1
     
-        ''' To know until which node our First pointer should travel for deletion. Note length of list will always be (len-1) as we are 
-        incrementing len of list inside while loop and coming out of loop when tail.next is None so not considering last node'''
-        
+        ''' To know until which node our First pointer should travel for deletion. Note length of list will always be (len-1)'''
         first_to_traverse=(len_of_list-n)
         
         '''If first element deletion is targeted '''
@@ -54,9 +52,7 @@ class Solution(object):
             first=temp
             head=first
             
-        '''We traverse our first pointer to the previous node of to be deleted node and increment pos value as counter . 
-        Pos checks if we have reached the previous node'''
-        
+        '''We traverse our first pointer to the previous node of to be deleted node .Pos counter validates that'''
         while(pos <first_to_traverse and first_to_traverse!=0):
             first=first.next
             pos+=1
@@ -67,5 +63,3 @@ class Solution(object):
             first.next=temp
             
         return head
-
-                
