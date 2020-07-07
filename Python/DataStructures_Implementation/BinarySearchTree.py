@@ -18,6 +18,11 @@ def minvalue(node):
         currvalue=currvalue.left
     return currvalue
 
+''' To Call maxvalue function independently , just change the lines: while(currvalue is not None) -> while(currvalue.right is not None):
+return currvalue -> return currvalue.data
+Same changes applicable for minvalue with left node. But delete function has to be changed accordingly.
+'''
+
 def maxvalue(node):
     currvalue=node
     while(currvalue is not None):
