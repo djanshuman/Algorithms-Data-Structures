@@ -46,6 +46,7 @@ def delete(node,value):
     elif(value < node.data):
         node.left=delete(node.left,value)
     else:
+        ''' In case of Node with single child or no child'''
         if(node.left is None):
             temp=node.right
             node=None
@@ -55,7 +56,7 @@ def delete(node,value):
             node=None
             return temp
         else:
-            
+            ''' In case of node with two child'''
             temp=minvalue(node.right)
             node.data=temp.data
             node.right=delete(node.right,temp.data)
