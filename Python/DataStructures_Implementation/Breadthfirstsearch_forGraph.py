@@ -59,7 +59,16 @@ E : ['B', 'D']
  / |    /
 8  3 - 2    6
  \ |    \  /
-   4     5          
+   4     5       
+   
+4. Fourth Pattern
+          50
+          /\
+       30   70
+       /\   /\
+     20 40 60 80
+                 \
+                 100     
 '''
 
 bst=Breadthfirstsearch()
@@ -75,9 +84,9 @@ bst.addedge('D','C')
 bst.addedge('D','E')
 bst.addedge('E','B')
 bst.addedge('E','D')
-print("\nPrinting Graphs Vertex and Edges:")
+print("\n1.Printing Graphs Vertex and Edges:")
 bst.printGraph()
-print("\nPrinting Graphs in BreadFirstSearch order :")
+print("\n1.Printing Graphs in BreadFirstSearch order :")
 print(bst.search('A'))
 print("\n")
 
@@ -94,9 +103,9 @@ bst.addedge(4,None)
 bst.addedge(5,None)
 bst.addedge(6,None)
 bst.addedge(7,None)
-print("\nPrinting Graphs Vertex and Edges:")
+print("\n2.Printing Graphs Vertex and Edges:")
 bst.printGraph()
-print("\nPrinting Graphs in BreadFirstSearch order :")
+print("\n2.Printing Graphs in BreadFirstSearch order :")
 print(bst.search(0))
 print("\n")
 
@@ -121,7 +130,22 @@ bst.addedge(5,6)
 bst.addedge(8,0)
 bst.addedge(8,4)
 bst.addedge(6,5)
-print("\nPrinting Graphs Vertex and Edges:")
+print("\n3.Printing Graphs Vertex and Edges:")
 bst.printGraph()
-print("\nPrinting Graphs in BreadFirstSearch order :")
+print("\n3.Printing Graphs in BreadFirstSearch order :")
 print(bst.search(0))
+print("\n")
+
+
+bst=Breadthfirstsearch()
+bst.addedge(50,30)
+bst.addedge(50,70)
+bst.addedge(30,20)
+bst.addedge(30,40)
+bst.addedge(70,60)
+bst.addedge(70,80)
+bst.addedge(80,100)
+print("\n4.Printing Graphs Vertex and Edges:")
+bst.printGraph()
+print("\n4.Printing Graphs in BreadFirstSearch order :")
+print(bst.search(50))
