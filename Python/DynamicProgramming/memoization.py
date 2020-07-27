@@ -43,3 +43,16 @@ def fibo(n):
 
 print(fibo(30))
 print("calculation we doing with memoization",calculation2)
+
+
+'''
+OUTPUT:
+
+/Users/dibyajyoti/PycharmProjects/DsAlgo/venv/bin/python /Users/dibyajyoti/PycharmProjects/DsAlgo/Fibonacii.py
+514229
+calculation we doing without memoization 1664079
+514229
+calculation we doing with memoization 57
+
+Process finished with exit code 0
+'''
