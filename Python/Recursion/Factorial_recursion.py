@@ -10,3 +10,10 @@ def factorial(result,number):
     result=result*number
     return factorial(result,number-1)
 print(factorial(1,5))
+
+
+def factorial2(number):
+    if number == 1:
+        return 1
+    return number * factorial2(number-1)
+print(factorial2(5))
