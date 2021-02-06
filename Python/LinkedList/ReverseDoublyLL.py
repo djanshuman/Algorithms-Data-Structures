@@ -78,7 +78,7 @@ class ReverseDoublyLL:
             self.length+=1
         self.printLinkedList()
             
-
+   ''' Function to reverse a doubly linked List'''
     def reverse(self):
         
         first=self.head
