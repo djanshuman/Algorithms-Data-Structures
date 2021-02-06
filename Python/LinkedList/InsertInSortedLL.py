@@ -89,7 +89,7 @@ class LinkedList:
                 node.next=follower
                 self.length+=1
                 break
-            #Handling the apppend case'''
+            #Handling the prepend case'''
             elif(value <= currValue.data):
                 node.next=self.head
                 self.head=node
