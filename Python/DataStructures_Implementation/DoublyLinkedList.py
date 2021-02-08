@@ -7,6 +7,8 @@ Created on 06-Feb-2021
 '''
 1. Doubly Linked List Implementation
 2. Reverse a Doubly linked List
+3. Delete element based on given index
+4. Delete element using a value
 '''
 
 class Node:
@@ -31,7 +33,7 @@ class DoubleLinkedListNew:
             currValue=currValue.next
         print(str(list1) +"->"+str(self.length))
  
-        
+    ''' Prepend an element in DoublyLinkedList''' 
     def prepend(self,data):
         node= Node(data)
         
@@ -45,7 +47,8 @@ class DoubleLinkedListNew:
             self.head=node
             self.length+=1
         self.printLinkedList()
-        
+      
+    ''' Append an element in DoublyLinkedList'''   
     def append(self,data):
         node= Node(data)
         
@@ -60,6 +63,7 @@ class DoubleLinkedListNew:
             self.length+=1
         self.printLinkedList()
         
+    ''' Insert an element in a given position''' 
     def insert(self,pos,data):
         if(pos==0):
             self.prepend(data)
@@ -80,6 +84,7 @@ class DoubleLinkedListNew:
             self.length+=1
         self.printLinkedList()
             
+    ''' Remove an element in a given index''' 
     def remove(self,index):
         if(index==0):
             newhead=self.head.next
@@ -101,7 +106,31 @@ class DoubleLinkedListNew:
             currValue.next.prev=currValue.prev
             self.length-=1
         self.printLinkedList()
-    
+        
+    ''' Remove element in DoublyLinkedList using Value'''
+    def remove_by_value(self,value):
+        currValue=self.head
+        while(currValue):
+            if(value==currValue.data):
+                if(currValue==self.head):
+                    self.head=currValue.next
+                    self.head.prev=None
+                    self.length-=1
+                    break
+                elif(currValue==self.tail):
+                    self.tail=currValue.prev
+                    self.tail.next=None
+                    self.length-=1
+                    break
+                else:
+                    currValue.prev.next=currValue.next
+                    currValue.next.prev=currValue.prev
+                    self.length-=1
+                    break     
+            currValue=currValue.next
+        self.printLinkedList()
+        
+    ''' Fetch item based on index'''            
     def getItem(self,index):
         if(index >=0 and index < (self.length)):
             counter=0
@@ -113,6 +142,7 @@ class DoubleLinkedListNew:
         else:
             return "Enter a valid index"
         
+    ''' Print element in reverse way'''   
     def print_reverseLL(self):
         currValue=self.tail
         list1=[]
@@ -121,6 +151,7 @@ class DoubleLinkedListNew:
             currValue=currValue.prev
         return list1
    
+    ''' Reverse a DoublyLinkedList'''
     def reverse(self):
         
         first=self.head
@@ -159,3 +190,16 @@ doublylinkedList.reverse()
 doublylinkedList.append(118)
 doublylinkedList.prepend(85)
 print(doublylinkedList.print_reverseLL())
+doublylinkedList.remove_by_value(40)
+doublylinkedList.insert(5, 35)
+doublylinkedList.insert(1,182)
+doublylinkedList.prepend(107)
+doublylinkedList.append(81)
+doublylinkedList.reverse()
+doublylinkedList.remove(3)
+doublylinkedList.remove(9) 
+doublylinkedList.insert(3,17)
+doublylinkedList.remove_by_value(120)
+doublylinkedList.remove_by_value(88)
+doublylinkedList.remove_by_value(81)
+doublylinkedList.remove_by_value(85)
