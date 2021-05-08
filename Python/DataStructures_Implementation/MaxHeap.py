@@ -1,6 +1,6 @@
 
 '''
-Created on 13-Jul-2020
+Created on 09-May-2021
 
 @author: dibyajyoti
 
@@ -70,6 +70,7 @@ class MaxHeap:
     def extractmax(self):
         popped=self.heap[self.front]
         self.heap[self.front]=self.heap[self.size]
+        self.heap[self.size]=0
         self.size-=1
         self.maxheapify(self.front)
         return popped
@@ -87,3 +88,4 @@ maxheap.insert(9)
 maxheap.print()
 print("The max value is : " + str(maxheap.extractmax()))
 maxheap.print()
+
