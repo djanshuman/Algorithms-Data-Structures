@@ -11,6 +11,7 @@ class stackUsingArray:
             return
         self.top+=1
         self.stack[self.top]=ele
+        s.printStack()
 
     def pop(self):
         if self.isEmpty():
@@ -33,12 +34,12 @@ class stackUsingArray:
 
     def peek(self,pos):
         if(pos > 0 and pos <= self.maxsize):
-            return self.stack[(self.top-pos)+1]
+            return "element at position "+str(pos)+" is "+str(self.stack[(self.top-pos)+1])
         else:
             return "Return a valid position (1 - Maxsize of stack)"
 
     def findTopElement(self):
-        return self.stack[self.top]
+        return "Top Element of stack:"+str(self.stack[self.top])
 
     def length_of_stack(self):
         if self.isEmpty():
@@ -56,18 +57,18 @@ class stackUsingArray:
             ind+=1
         print(list1,":length of stack:",self.length_of_stack())
 
+if __name__ == '__main__':
+    s = stackUsingArray(5)
+    s.push(10)
+    s.push(20)
+    s.push(23)
+    s.push(100)
+    s.push(234)
+    print(s.pop())
+    s.printStack()
+    s.push(190)
+    s.push(223)
+    print(s.peek(4))
+    print(s.findTopElement())
 
-s=stackUsingArray(5)
-s.push(10)
-s.push(20)
-s.push(23)
-s.push(100)
-s.push(234)
-s.printStack()
-print(s.pop())
-s.printStack()
-s.push(190)
-s.printStack()
-s.push(223)
-print(s.peek(4))
-print(s.findTopElement())
+
