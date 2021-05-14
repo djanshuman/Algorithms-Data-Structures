@@ -1,5 +1,9 @@
 ''' Queue Implementation using Array and two pointers'''
 
+'''Drawbacks of queue 
+1. Space once used cannot be reclaim and no enqueue can happen as front pointer has moved ahead. The empty slot are wasted.
+2. To handle fresh enqueue and claim empty deleted slot for enqueing of elements , we used two pointer method to reset front and rear'''
+
 
 class queueUsingArray:
 
