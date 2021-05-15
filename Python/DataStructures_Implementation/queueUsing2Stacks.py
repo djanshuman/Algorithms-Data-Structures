@@ -1,4 +1,8 @@
-'''Implementation of Queue FIFO using two Stacks. Stacks are implemented using LinkedList'''
+'''Implementation of Queue FIFO using two Stacks. Stacks are implemented using LinkedList
+Note: To implement FIFO logic for stack1, we are popping from stack1 and pushing into stack2. Then popping from stack2
+'''
+'''Note : if stack2 is not empty then queueOperationUsing2Stacks() function will not work in FIFO mode as we will pop as LIFO.
+To have stack2 behave as FIFO we have to pop all elements into a new stack3 and pop from it'''
 
 '''For stack1'''
 class Node1:
@@ -29,6 +33,7 @@ class queueUsing2Stacks:
         if self.isFull1():
             print("Stack1 is full")
             return False
+
         node = Node1(ele)
         if(self.length1==0):
             self.top1=node
@@ -46,44 +51,38 @@ class queueUsing2Stacks:
             print("Stack2 is full")
             return False
 
-        '''Checking ele for None as Popped element of stack1 will also be pushed in shifting function'''
-        if ele!=None:
-            node = Node2(ele)
-            if(self.length2==0):
-                self.top2=node
-                self.tail2=node
-                self.length2+=1
-            else:
-                node.next2=self.top2
-                self.top2=node
-                self.length2+=1
-        return None
+        node = Node2(ele)
+        if(self.length2==0):
+            self.top2=node
+            self.tail2=node
+            self.length2+=1
+        else:
+            node.next2=self.top2
+            self.top2=node
+            self.length2+=1
+        print(self.printStack2())
 
     def pop_1(self):
         if self.isEmpty1():
             print("Stack1 is empty")
             return None
 
-        if(self.top1!=None):
-            ele=self.top1.data1
-            self.top1=self.top1.next1
-            self.length1-=1
-            return ele
-        return None
+        ele=self.top1.data1
+        self.top1=self.top1.next1
+        self.length1-=1
+        return ele
 
     def pop2(self):
         if self.isEmpty2():
             print("Stack2 is empty")
             return None
 
-        if(self.top2!=None):
-            ele = self.top2.data2
-            self.top2 = self.top2.next2
-            self.length2 -= 1
-            return ele
-        return None
+        ele = self.top2.data2
+        self.top2 = self.top2.next2
+        self.length2 -= 1
+        return ele
 
-
+    '''shifting function, pop from stack1 and push into s2'''
     def push_s1Tos2(self):
         len=self.length1
         id=0
@@ -129,7 +128,6 @@ class queueUsing2Stacks:
         return "Elements in stack2=> " + str(list2)
 
     '''Functionality implementation and using of helper function to drive logic'''
-
     def queueOperationUsing2Stacks(self):
         if(self.length2==0):
             if(self.length1==0):
@@ -148,6 +146,7 @@ if __name__ == '__main__':
     s1.push_s1(20)
     s1.push_s1(30)
     s1.push_s1(40)
+    s1.push_s1(400)
     s1.push_s1(50)
     s1.push_s2(90)
     s1.push_s2(120)
