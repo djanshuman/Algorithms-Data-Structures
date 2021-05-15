@@ -33,7 +33,7 @@ class queueUsingLinkedList:
         print(self.printQueue())
 
     def dequeue(self):
-        temp=-1
+
         if self.isEmpty():
             print("Queue is Empty")
             return
@@ -67,7 +67,6 @@ class queueUsingLinkedList:
             return "Element at pos "+str(pos)+"=>"+str(curr.data)
         else:
             return "There is no element for the given position => "+str(pos)
-
 
     def printQueue(self):
         curr=self.front
