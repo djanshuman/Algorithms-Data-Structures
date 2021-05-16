@@ -4,18 +4,19 @@
 Insertion to be done based on priority and deletion to be done only on mainQueue. 
 If and only iff mainQueue is empty then only secondQueue element in dequeued as per FIFO'''
 
+'''Queue enqueing is based on circular queue concept'''
+
 class PriorityQueue:
     def __init__(self,maxsize):
         self.maxsize=maxsize
-        self.queue=dict()
         self.mainQueue=[None]*self.maxsize
-        self.lengthMQ=0
-        self.lengthSQ=0
         self.secondQueue=[None]*self.maxsize
         self.front=0
         self.rear=0
         self.front1 = 0
         self.rear1 = 0
+        self.lengthMQ = 0
+        self.lengthSQ = 0
 
 
     '''Main Enqueue Logic driver code'''
