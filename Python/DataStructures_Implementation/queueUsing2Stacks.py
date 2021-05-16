@@ -168,4 +168,3 @@ if __name__ == '__main__':
     print(s1.queueOperationUsing2Stacks())
     print(s1.queueOperationUsing2Stacks())
     print(s1.queueOperationUsing2Stacks())
-
