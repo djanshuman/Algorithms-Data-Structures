@@ -1,6 +1,8 @@
 '''Implementation of Selection Sort
 No of comparison=> O(n)^2 , No of swaps=> n-1 =O(n)
-Only algorithm which swaps with least no of swaps.'''
+Only algorithm which swaps with least no of swaps.
+Intermediate results are possible like each pass k smaller elements
+It is not adaptive neither stable'''
 
 def SelectionSort(list1):
 
