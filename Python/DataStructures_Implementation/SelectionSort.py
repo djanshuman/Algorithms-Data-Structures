@@ -1,4 +1,6 @@
-'''Implementation of Selection Sort'''
+'''Implementation of Selection Sort
+No of comparison=> O(n)^2 , No of swaps=> n-1 =O(n)
+Only algorithm which swaps with least no of swaps.'''
 
 def SelectionSort(list1):
 
