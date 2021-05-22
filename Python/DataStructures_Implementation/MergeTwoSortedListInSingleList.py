@@ -35,7 +35,8 @@ def SortnMerge(list1,mid_point):
             list3.append(list1[m])
             m+=1
 
-    '''Validate and insert bigger elements which were left behind while inserting into auxillary list'''
+    '''Validate and insert bigger elements which were left behind while inserting into auxillary list.
+    This happen due to unequal list size,odd number of elements etc. So the left over elements is considered'''
     for p in range(i,mid_point):
         list3.append(list1[p])
 
