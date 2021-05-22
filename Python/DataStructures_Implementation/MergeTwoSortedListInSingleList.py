@@ -13,20 +13,20 @@ def MergeTwoList(list1):
     i = 0
     j = i + 1
 
-    '''Find end marker for first list and start marker for 2nd list from main list, then call SortMerge function 
+    '''Find starting point of 2nd list from main list which is considered as mid-point, then call SortMerge function 
     to sort into auxillary array then copy back to original array'''
     while (list1[i] < list1[j] and i < len_list1 and j < len_list1):
         i += 1
         j += 1
-    SortnMerge(list1, i, j)
+    SortnMerge(list1,j)
 
-def SortnMerge(list1,point1,point2):
+def SortnMerge(list1,mid_point):
 
-    m=point2
+    m=mid_point
     i=0
     list3=[]
 
-    while(i<point2 and m<len(list1)):
+    while(i<mid_point and m<len(list1)):
 
         if(list1[i] < list1[m]):
             list3.append(list1[i])
@@ -36,7 +36,7 @@ def SortnMerge(list1,point1,point2):
             m+=1
 
     '''Validate and insert bigger elements which were left behind while inserting into auxillary list'''
-    for p in range(i,point2):
+    for p in range(i,mid_point):
         list3.append(list1[p])
 
     for q in range(m,len(list1)):
