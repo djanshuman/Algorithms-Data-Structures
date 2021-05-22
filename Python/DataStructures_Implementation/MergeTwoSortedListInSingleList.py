@@ -55,3 +55,4 @@ if __name__=="__main__":
 # ---------Output-----------
 #Original List: [2, 5, 8, 12, 24, 45, 99, 120, 130, 3, 6, 7, 10, 102, 105, 150, 160]
 #Sorted Original list post copy from auxillary list [2, 3, 5, 6, 7, 8, 10, 12, 24, 45, 99, 102, 105, 120, 130, 150, 160]
+
