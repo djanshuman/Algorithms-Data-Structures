@@ -6,8 +6,6 @@ first list from 2 to 130
 second list 3 to 160
 
 '''
-
-
 def MergeTwoList(list1):
     print("Original List:", list1)
     len_list1 = len(list1)
@@ -53,3 +51,7 @@ def SortnMerge(list1,point1,point2):
 if __name__=="__main__":
     list1=[2,5,8,12,24,45,99,120,130,3,6,7,10,102,105,150,160]
     MergeTwoList(list1)
+
+# ---------Output-----------
+#Original List: [2, 5, 8, 12, 24, 45, 99, 120, 130, 3, 6, 7, 10, 102, 105, 150, 160]
+#Sorted Original list post copy from auxillary list [2, 3, 5, 6, 7, 8, 10, 12, 24, 45, 99, 102, 105, 120, 130, 150, 160]
