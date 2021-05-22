@@ -6,8 +6,6 @@ first list from 2 to 130
 second list 3 to 160
 
 '''
-
-
 def MergeTwoList(list1):
     print("Original List:", list1)
     len_list1 = len(list1)
