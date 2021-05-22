@@ -22,7 +22,8 @@ def MergeTwoSortedList(list1,list2):
     for m in range(j,len_list2):
         list3.append(list2[m])
 
-    print(list3)
+    print("Merged Sorted List : ",list3)
+
 if __name__=="__main__":
     list1=[2,4,6,10,45,99,102]
     list2=[5,8,13,21,25,88,120,234,400]
