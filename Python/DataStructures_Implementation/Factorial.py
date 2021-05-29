@@ -6,3 +6,14 @@ def facto(n):
     return facto(n-1)*n
 
 print(facto(100))
+
+
+
+'''Factorial of a number using memorization of optimization'''
+def facto(n,k):
+    if n==0:
+        return k
+
+    return facto(n-1,k*n)
+
+print(facto(100,1))
