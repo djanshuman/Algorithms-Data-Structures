@@ -5,7 +5,7 @@ def facto(n):
         return 1
     return facto(n-1)*n
 
-print(facto(100))
+print(facto(997))
 
 
 
@@ -16,4 +16,4 @@ def facto(n,k):
 
     return facto(n-1,k*n)
 
-print(facto(100,1))
+print(facto(997,1))
