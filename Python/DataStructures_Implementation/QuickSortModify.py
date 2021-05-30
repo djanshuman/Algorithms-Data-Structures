@@ -52,7 +52,6 @@ def Partition(alist, start, end):
     Swap(alist, end, pindex)
     return pindex
 
-
 def Swap(alist, pos1, pos2):
     temp = alist[pos1]
     alist[pos1] = alist[pos2]
@@ -62,8 +61,3 @@ if __name__=="__main__":
     alist = [100, 1, 5, 6, 99, 42, 2]
     Quicksort(alist, 0, len(alist) - 1)
     print(alist)
-
-
-
-
-
