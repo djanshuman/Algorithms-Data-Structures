@@ -44,6 +44,3 @@ if __name__ == "__main__":
     alist = [100, 1, 30, 42, 77, 23, 5, 55, 9]
     QuickSort(alist)
     print(alist)
-
-
-
