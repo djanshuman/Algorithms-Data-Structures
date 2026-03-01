@@ -37,6 +37,7 @@ def sudukoSolver(mat,r,c):
             if sudukoSolver(mat,r,c+1):
                 return True
             mat[r][c] = 0
+    return False
 if __name__ == "__main__":
     mat = [
         [3, 0, 6, 5, 0, 8, 4, 0, 0],
