@@ -33,3 +33,48 @@ class Solution:
                 res.append( i - len_check +1)
         return res
 
+
+'''
+More performant way '''
+
+def find_all_anagrams(original: str, check: str) -> list[int]:
+    if len(original) < len(check):
+        return []
+
+    # 1. Map out the target frequencies
+    check_counter = {}
+    for c in check:
+        check_counter[c] = check_counter.get(c, 0) + 1
+        
+    # 2. 'required' is the number of UNIQUE characters to satisfy
+    required = len(check_counter)
+    formed = 0
+    left = 0
+    window = {}
+    res = []
+
+    # 3. Iterate over the ORIGINAL string
+    for right in range(len(original)):
+        right_char = original[right]
+        window[right_char] = window.get(right_char, 0) + 1
+
+        # Check if this character now meets the required frequency
+        if right_char in check_counter and window[right_char] == check_counter[right_char]:
+            formed += 1 
+
+        # 4. Maintain the window size
+        if right >= len(check):
+            out_char = original[left]
+            
+            # If the char leaving was previously satisfying the count, decrement formed
+            if out_char in check_counter and window[out_char] == check_counter[out_char]:
+                formed -= 1
+
+            window[out_char] -= 1
+            left += 1
+
+        # 5. Record result if all unique characters are satisfied
+        if formed == required:
+            res.append(left)
+            
+    return res
