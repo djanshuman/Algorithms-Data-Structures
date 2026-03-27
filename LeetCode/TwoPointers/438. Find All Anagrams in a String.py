@@ -38,43 +38,64 @@ class Solution:
 More performant way '''
 
 def find_all_anagrams(original: str, check: str) -> list[int]:
+    # 1. Edge case: If the string to check is longer than the original, no anagrams possible
     if len(original) < len(check):
         return []
 
-    # 1. Map out the target frequencies
-    check_counter = {}
+    # 2. Map out the target frequencies (The "Goal")
+    check_counter = dict()
     for c in check:
         check_counter[c] = check_counter.get(c, 0) + 1
         
-    # 2. 'required' is the number of UNIQUE characters to satisfy
+    # 3. Initialize State Variables
+    # 'required' is the number of UNIQUE characters that must reach a specific frequency
     required = len(check_counter)
     formed = 0
     left = 0
-    window = {}
+    window = dict()
     res = []
 
-    # 3. Iterate over the ORIGINAL string
+    # 4. Iterate over the ORIGINAL string with the 'right' pointer
     for right in range(len(original)):
+        # Expand: Add character from the right to our current window
         right_char = original[right]
         window[right_char] = window.get(right_char, 0) + 1
 
-        # Check if this character now meets the required frequency
+        # If this character's count in our window matches the target count exactly, 
+        # we've satisfied one unique character requirement.
         if right_char in check_counter and window[right_char] == check_counter[right_char]:
             formed += 1 
 
-        # 4. Maintain the window size
+        # 5. Maintain Window Size: If window exceeds len(check), slide 'left' forward
         if right >= len(check):
             out_char = original[left]
             
-            # If the char leaving was previously satisfying the count, decrement formed
+            # If the character leaving was currently satisfying a frequency requirement,
+            # we must decrement 'formed' before we reduce its count.
             if out_char in check_counter and window[out_char] == check_counter[out_char]:
                 formed -= 1
 
             window[out_char] -= 1
+            
+            # Memory Cleanup: Remove the key if the count hits zero
+            if window[out_char] == 0:
+                del window[out_char]
+                
             left += 1
 
-        # 5. Record result if all unique characters are satisfied
+        # 6. Success Check: If all unique character requirements are met, we found an anagram
         if formed == required:
             res.append(left)
             
     return res
+
+# --- Execution Block ---
+if __name__ == "__main__":
+    # Example Input: 
+    # original: cbaebabacd
+    # check: abc
+    original = input().strip()
+    check = input().strip()
+    res = find_all_anagrams(original, check)
+    print(" ".join(map(str, res)))
+
