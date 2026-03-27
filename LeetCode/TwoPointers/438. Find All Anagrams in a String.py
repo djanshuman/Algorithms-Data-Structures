@@ -99,3 +99,75 @@ if __name__ == "__main__":
     res = find_all_anagrams(original, check)
     print(" ".join(map(str, res)))
 
+
+'''
+
+1. The "Why": Logic breakdown
+
+Why the check_counter?
+
+Comparing two strings directly (e.g., sorted(s) == sorted(p)) is O(KlogK), which is too slow inside a loop. By counting frequencies in a hash map, we turn a "string comparison" into a "count comparison."
+
+Why the formed and required variables? (The "Secret Sauce")
+
+This is the most important part of your logic.
+
+The Problem: Comparing two dictionaries (if window == check_counter) takes O(26) time. In a long string, doing that millions of times adds up.
+
+The Solution: Instead of checking the whole dictionary, you only check the specific character you just changed.
+
+required: How many unique characters do we need to "satisfy"?
+
+formed: How many unique characters currently have the exact count we need?
+
+The Result: You only do a simple integer comparison (if formed == required), which is O(1).
+
+Why the if right >= len(check)?
+
+This keeps the window fixed. As the right pointer moves forward, the left pointer must follow exactly K steps behind. This ensures we are only ever looking at a substring that is the same length as our target check.
+
+2. The "Template": A reusable blueprint
+
+This specific structure is a "Fixed-Size Sliding Window." You can use this exact template whenever you need to find a substring of a specific length with specific properties.
+
+Step-by-Step Template:
+
+Preprocessing: Create a frequency map of your "target" (the string you are looking for).
+
+State Variables: Initialize a window map, a left pointer, and your formed/required counters.
+
+Expansion (Right Pointer):
+
+Add the current character to the window.
+
+If that character's count now matches the target, increment formed.
+
+Contraction (Left Pointer):
+
+If the window is too big, look at the character at left.
+
+If that character was "satisfying" a requirement, decrement formed.
+
+Remove it from the window and move left forward.
+
+Validation:
+
+Check if formed == required. If yes, you've found a match!
+
+3. Why the del window[out_char] matters
+
+You added this in your last version, and it's a great "pro" touch. In Python, dictionaries take up memory for every key. By deleting keys when their count hits 0, you:
+
+Keep the memory usage strictly O(unique characters).
+
+Prevent the dictionary from becoming cluttered with "ghost" characters that aren't actually in your current window.
+
+Summary of Performance
+
+Step	Complexity
+Building check_counter	O(P) where P is length of check
+Sliding the Window	O(S) where S is length of original
+Comparing formed == required	O(1)
+Total Time	O(S+P) — This is the fastest possible theoretical time.
+
+'''
