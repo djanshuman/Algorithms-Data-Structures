@@ -1,5 +1,10 @@
 '''
 https://leetcode.com/problems/contiguous-array/description/
+
+Key Idea:
+Transforming the binary problem into a zero sum subarray search by treating zeros as negative ones.
+
+
 '''
 
 class Solution:
