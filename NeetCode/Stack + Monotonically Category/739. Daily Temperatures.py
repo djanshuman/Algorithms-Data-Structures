@@ -1,5 +1,7 @@
 '''
 https://leetcode.com/problems/daily-temperatures/description/
+
+Monitonically increasing stack pattern
 '''
 
 
