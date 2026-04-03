@@ -74,4 +74,36 @@ class Solution:
                 res.append(j)
                 if len(res) == k:
                     return res
+
+
+'''Approach 3 
+
+If k is very small but frequency range is huge, bucket sort becomes inefficient because:
+
+You still build an O(N) bucket array just to pick a few elements
+
+Complexity: Time O(N log k) · Space O(N + k)
+
+Tradeoff summary:
+Approach       Time             Best when
+Bucket Sort    O(N)             k is large or close to N
+Min-Heap sizek O(N log k)       k is very small
+Max-Heap       O(N log N)       general use
+
+So the optimal approach depends on k — there's no single best solution for all cases.
+'''
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        mydict = dict()
+        for i in nums:
+            mydict[i] = mydict.get(i, 0) + 1
+
+        minheap = []
+        for key, val in mydict.items():
+            heapq.heappush(minheap, (val, key))
+            if len(minheap) > k:
+                heapq.heappop(minheap)  # evict least frequent
+
+        return [key for val, key in minheap]
     
